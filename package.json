@@ -27,7 +27,7 @@
     "jsonwebtoken": "^8.1.1",
     "lodash": "^4.17.4",
     "mongodb": "^2.2.33",
-    "mongoose": "^5.0.1",
+    "mongoose": "^5.7.5",
     "multi-part": "^2.0.0",
     "nexmo": "^2.4.1",
     "nodemailer": "^4.6.0",
