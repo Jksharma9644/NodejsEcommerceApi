@@ -39,6 +39,10 @@ var UserSchema = new mongoose.Schema({
     },
     roles: [{ type: 'String' }],
     isVerified: { type: Boolean, default: false },
+    address:{
+    type:Array,
+    default:[]
+    },
     isNumberVerified:{type:Boolean,default:false},
     passwordResetToken: String,
     passwordResetExpires: Date

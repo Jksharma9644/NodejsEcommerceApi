@@ -299,4 +299,30 @@ async function sendEmail(user,token,res) {
 
 
 }
+exports.editClientProfile = function (req, res) {
+    const id = req.params.id;
+    var myquery = { _id: id };
+    var newvalues = { $set: req.body };
+    User.updateOne(myquery, newvalues, function (err) {
+        if (err) {
+            res.status(500).send({ message: err.message || "Some error occurred while retrieving notes." })
 
+        } else {
+            res.status(200).send({ status: true, message: "profile has been edited" })
+
+
+        }
+    })
+}
+
+exports.getAllusers = function (req, res) {
+    User.find()
+    .then(user => {
+        res.status(200).send({ status: true, data: user })
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving notes."
+        });
+    });
+
+}

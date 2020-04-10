@@ -69,7 +69,10 @@ app.route('/auth/sendOTP')
     .post(userHandler.sendVerificationCode);
 app.route('/auth/verifyOTP')
     .post(userHandler.VerifyOTP);
-
+app.route('/auth/editProfile/:id')
+    .put(userHandler.editClientProfile);
+app.route('/auth/getallUsers')
+     .get(userHandler.getAllusers);
 // payment gateway api
 
 app.route('/createHash')
