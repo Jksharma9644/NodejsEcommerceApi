@@ -95,34 +95,34 @@ exports.sign_in = function (req, res) {
 };
 
 /***********Mobile Verification Code***************/
-exports.sendVerificationCode = function (req, res) {
-    var mobileNo = req.body.mobile;
-    var min = 10000;
-    var max = 99999;
-    var otp = Math.floor(Math.random() * (max - min + 1)) + min;
+// exports.sendVerificationCode = function (req, res) {
+//     var mobileNo = req.body.mobile;
+//     var min = 10000;
+//     var max = 99999;
+//     var otp = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    var client = twilio(config.twilio.sid, config.twilio.token);
+//     var client = twilio(config.twilio.sid, config.twilio.token);
 
-    client.messages.create(
-        {
-            to: '+91' + mobileNo,
-            from: config.twilio.no,
-            body: otp + '  ' + 'is your OTP to proceed on sawji gorcerry store' + ' ' +
-                'valid for 15 Minutes',
-        },
-        (err, message) => {
-            // console.log(message);
-            if (err) throw err;
-            var OTP = new Otp({ _userId: req.body._id, MobileNo: req.body.mobile, otp: otp });
+//     client.messages.create(
+//         {
+//             to: '+91' + mobileNo,
+//             from: config.twilio.no,
+//             body: otp + '  ' + 'is your OTP to proceed on sawji gorcerry store' + ' ' +
+//                 'valid for 15 Minutes',
+//         },
+//         (err, message) => {
+//             // console.log(message);
+//             if (err) throw err;
+//             var OTP = new Otp({ _userId: req.body._id, MobileNo: req.body.mobile, otp: otp });
 
-            OTP.save(function (err) {
-                if (err) { return res.status(500).send({ msg: err.message }); }
-                return res.status(200).json({ status: true, message: 'OTP is sent to your registered mobile no' })
-            });
+//             OTP.save(function (err) {
+//                 if (err) { return res.status(500).send({ msg: err.message }); }
+//                 return res.status(200).json({ status: true, message: 'OTP is sent to your registered mobile no' })
+//             });
 
-        }
-    );
-}
+//         }
+//     );
+// }
 
 exports.VerifyOTP = function (req, res) {
 
@@ -182,35 +182,35 @@ exports.confirmationPost = function (req, res) {
 };
 
 /********************Resend Token*************/
-exports.resend = function (req, res) {
-    User.findOne({ email: req.body.email }, function (err, user) {
-        if (!user) return res.status(400).send({ msg: 'We were unable to find a user with that email.' });
-        if (user.isVerified) return res.status(400).send({ msg: 'This account has already been verified. Please log in.' });
+// exports.resend = function (req, res) {
+//     User.findOne({ email: req.body.email }, function (err, user) {
+//         if (!user) return res.status(400).send({ msg: 'We were unable to find a user with that email.' });
+//         if (user.isVerified) return res.status(400).send({ msg: 'This account has already been verified. Please log in.' });
 
-        // Create a verification token, save it, and send email
-        var token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
+//         // Create a verification token, save it, and send email
+//         var token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
 
-        // Save the token
-        token.save(function (err) {
-            if (err) { return res.status(500).send({ msg: err.message }); }
+//         // Save the token
+//         token.save(function (err) {
+//             if (err) { return res.status(500).send({ msg: err.message }); }
 
-            // Send the email
-            var transporter = nodemailer.createTransport({
-                service: "Gmail",
-                auth: {
-                    user: "jaycareer1989@gmail.com",
-                    pass: "qwerasdf7330"
-                }
-            });
-            var mailOptions = { from: 'jaycareer1989@gmail.com', to: user.email, subject: 'Account Verification Token', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + 'localhost:4200/auth/activated/' + token.token + '.\n' };
-            transporter.sendMail(mailOptions, function (err) {
-                if (err) { return res.status(500).send({ msg: err.message }); }
-                res.status(200).send('A verification email has been sent to ' + user.email + '.');
-            });
-        });
+//             // Send the email
+//             var transporter = nodemailer.createTransport({
+//                 service: "Gmail",
+//                 auth: {
+//                     user: "jaycareer1989@gmail.com",
+//                     pass: "qwerasdf7330"
+//                 }
+//             });
+//             var mailOptions = { from: 'jaycareer1989@gmail.com', to: user.email, subject: 'Account Verification Token', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + 'localhost:4200/auth/activated/' + token.token + '.\n' };
+//             transporter.sendMail(mailOptions, function (err) {
+//                 if (err) { return res.status(500).send({ msg: err.message }); }
+//                 res.status(200).send('A verification email has been sent to ' + user.email + '.');
+//             });
+//         });
 
-    });
-}
+//     });
+// }
 
 /************Login  Required handlers*/
 
@@ -257,48 +257,48 @@ exports.adminSignin = function (req, res) {
         }
     });
 }
-async function sendEmail(user,token,res) {
-    const oauth2Client = new OAuth2(
-        "775138700295-rhokherulrl6pkaecq1mc9f314252q9r.apps.googleusercontent.com",//client id
-        "pPo1rfWhkQRtuJ0atha_D8XE", // Client Secret
-        "https://developers.google.com/oauthplayground" // Redirect URL
-    )
+// async function sendEmail(user,token,res) {
+//     const oauth2Client = new OAuth2(
+//         "775138700295-rhokherulrl6pkaecq1mc9f314252q9r.apps.googleusercontent.com",//client id
+//         "pPo1rfWhkQRtuJ0atha_D8XE", // Client Secret
+//         "https://developers.google.com/oauthplayground" // Redirect URL
+//     )
 
-    oauth2Client.setCredentials({
-        refresh_token: "1/doGwnDj7o0zjaepHXMEmS6h6Ms_Q4UQ98o6HZvaQzBk"
-    });
+//     oauth2Client.setCredentials({
+//         refresh_token: "1/doGwnDj7o0zjaepHXMEmS6h6Ms_Q4UQ98o6HZvaQzBk"
+//     });
 
-    const tokens = await oauth2Client.getRequestHeaders()
-    const accessToken = tokens.credentials.access_token;
-    const smtpTransport = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-            type: "OAuth2",
-            user: "sawjiretail@gmail.com",
-            clientId: "497673940981-afrjmrcluj6tpdnue6aobh5kvpv6gv5i.apps.googleusercontent.com",
-            clientSecret: "6WAZ7igNkW2w8Q-xQPNzqtPu",
-            refreshToken: "1//04LAOILhJwGHfCgYIARAAGAQSNwF-L9IrfPXJbrTXZgRko2J7u2B1lQKs5Xo1R_fFUSs0Ts1YWGPsS7FrlbM6zfdfFTPGhtvOcYE",
-            accessToken: accessToken
-        }
-    });
+//     const tokens = await oauth2Client.getRequestHeaders()
+//     const accessToken = tokens.credentials.access_token;
+//     const smtpTransport = nodemailer.createTransport({
+//         service: "gmail",
+//         auth: {
+//             type: "OAuth2",
+//             user: "sawjiretail@gmail.com",
+//             clientId: "497673940981-afrjmrcluj6tpdnue6aobh5kvpv6gv5i.apps.googleusercontent.com",
+//             clientSecret: "6WAZ7igNkW2w8Q-xQPNzqtPu",
+//             refreshToken: "1//04LAOILhJwGHfCgYIARAAGAQSNwF-L9IrfPXJbrTXZgRko2J7u2B1lQKs5Xo1R_fFUSs0Ts1YWGPsS7FrlbM6zfdfFTPGhtvOcYE",
+//             accessToken: accessToken
+//         }
+//     });
 
-    const mailOptions = {
-        from: "sawjiretail@gmail.com",
-        to: user.email,
-        subject: "Account Verification Token",
-        generateTextFromHTML: true,
-        text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + config.callabckurl + 'auth/activated/' + token.token + '.\n',
-        // html: "<p>Please verify your account by clicking the link</p><br/> <p><a></a>"
-    };
-    smtpTransport.sendMail(mailOptions, (error, response) => {
-        if(error){
-            res.status(400).json({status:false,msg:""})
-        }
-        res.status(200).json({ status: true, data: user, message: 'A verification email has been sent to ' + user.email + '.' });
-    });
+//     const mailOptions = {
+//         from: "sawjiretail@gmail.com",
+//         to: user.email,
+//         subject: "Account Verification Token",
+//         generateTextFromHTML: true,
+//         text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + config.callabckurl + 'auth/activated/' + token.token + '.\n',
+//         // html: "<p>Please verify your account by clicking the link</p><br/> <p><a></a>"
+//     };
+//     smtpTransport.sendMail(mailOptions, (error, response) => {
+//         if(error){
+//             res.status(400).json({status:false,msg:""})
+//         }
+//         res.status(200).json({ status: true, data: user, message: 'A verification email has been sent to ' + user.email + '.' });
+//     });
 
 
-}
+// }
 exports.editClientProfile = function (req, res) {
     const id = req.params.id;
     var myquery = { _id: id };
