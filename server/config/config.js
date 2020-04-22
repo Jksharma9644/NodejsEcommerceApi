@@ -2,7 +2,7 @@ var config = {
     dev: {
         mode: 'dev',
         port: 3000,
-        db: 'mongodb://heroku_bhs2ckxw:mo7ea6c59fcqrlbr0posm1np2h@ds125673.mlab.com:25673/heroku_bhs2ckxw',
+        db: 'mongodb://sawjiadmin:myqwerty9644@ds263248.mlab.com:63248/heroku_30cntxcf',
         twilio: {
             sid: "ACf327968354d3d32a207f344d2c078102",
             token: "ed696243044ff73bc54b506b3528ddf7",
@@ -35,7 +35,7 @@ var config = {
     staging: {
         mode: 'staging',
         port: 3000,
-        db: 'mongodb://heroku_bhs2ckxw:mo7ea6c59fcqrlbr0posm1np2h@ds125673.mlab.com:25673/heroku_bhs2ckxw',
+        db: 'mongodb://sawjiadmin:myqwerty9644@ds263248.mlab.com:63248/heroku_30cntxcf',
         twilio: {
             sid: "ACf327968354d3d32a207f344d2c078102",
             token: "ed696243044ff73bc54b506b3528ddf7",
@@ -68,7 +68,7 @@ var config = {
     production: {
         mode: 'production',
         port: 3000,
-        db: 'mongodb://heroku_bhs2ckxw:mo7ea6c59fcqrlbr0posm1np2h@ds125673.mlab.com:25673/heroku_bhs2ckxw',
+        db: 'mongodb://sawjiadmin:myqwerty9644@ds263248.mlab.com:63248/heroku_30cntxcf',
     },
 
 }
