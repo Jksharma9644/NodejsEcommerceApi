@@ -11,9 +11,9 @@ var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var twilio = require('twilio');
 const config = require('../../server/config/config')();
-var authy = require('authy')(config.authy.sid);
-const { google } = require("googleapis");
-const OAuth2 = google.auth.OAuth2;
+// var authy = require('authy')(config.authy.sid);
+// const { google } = require("googleapis");
+// const OAuth2 = google.auth.OAuth2;
 
 
 

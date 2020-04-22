@@ -1,7 +1,6 @@
 'use strict';
 // var mongoose = require('mongoose'),
 var { mongoose } = require('../../server/db/mongoose'),
-    jsonwebToken = require('jsonwebtoken'),
     csv = require('csvtojson'),
     bcrypt = require('bcrypt'),
     Products = mongoose.model('Products');
