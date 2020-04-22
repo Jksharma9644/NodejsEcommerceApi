@@ -63,12 +63,12 @@ app.route('/auth/sign_in')
     .post(userHandler.sign_in);
 app.route('/auth/confirmation')
     .post(userHandler.confirmationPost);
-app.route('/auth/resend')
-    .post(userHandler.resend);
-app.route('/auth/sendOTP')
-    .post(userHandler.sendVerificationCode);
-app.route('/auth/verifyOTP')
-    .post(userHandler.VerifyOTP);
+// app.route('/auth/resend')
+//     .post(userHandler.resend);
+// app.route('/auth/sendOTP')
+//     .post(userHandler.sendVerificationCode);
+// app.route('/auth/verifyOTP')
+//     .post(userHandler.VerifyOTP);
 app.route('/auth/editProfile/:id')
     .put(userHandler.editClientProfile);
 app.route('/auth/getallUsers')
