@@ -22,10 +22,10 @@ var config = {
             refreshToken: '1/Ix7La9ORGBzXSqxqLs7vZpuZrjzYm3ZshHtZ96fpoZo',
             accessToken:'ya29.GlsVB8iAa2cmO80vHYyhVuMghxQRY8E-LWDkXchecoTAkiI9sWg1wTAQo6uqjf2mRXX3qjwGpPyoGpCta5mqpn-jN7Kq0swVB4iuhwcly1gWqU2QjJ0dgihYapAQ'
         },
-        nexmo:{
-            apiKey: 'ef06b72f',
-            apiSecret: 'YrGRyGVeTFZtz4bQ',
-        },
+        // nexmo:{
+        //     apiKey: 'ef06b72f',
+        //     apiSecret: 'YrGRyGVeTFZtz4bQ',
+        // },
 
         authy: {
             sid: 'ACc85a5ec08b0f1d811dfb84612d11094a'
