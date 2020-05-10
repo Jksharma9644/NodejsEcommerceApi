@@ -28,7 +28,7 @@ exports.placeorder = function (req, res) {
             console.log(err);
             response = { "status": false, "message": err };
         } else {
-            response = { "status": true, "message": "Data added for ID :" + data._id, " OrderId ": data.ORDER_ID };
+            response = { "status": true, "message": "Data added for ID :" + data._id, "OrderId": data.ORDER_ID };
         }
         res.json(response);
     })

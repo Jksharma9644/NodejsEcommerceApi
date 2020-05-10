@@ -2,11 +2,12 @@ var config = {
     dev: {
         mode: 'dev',
         port: 3000,
-        db: 'mongodb://sawjiadmin:myqwerty9644@ds263248.mlab.com:63248/heroku_30cntxcf',
+        // db: 'mongodb://sawjiadmin:myqwerty9644@ds263248.mlab.com:63248/heroku_30cntxcf',
+        db:"mongodb://localhost:27017",
         twilio: {
-            sid: "ACf327968354d3d32a207f344d2c078102",
-            token: "ed696243044ff73bc54b506b3528ddf7",
-            no: '+12512206042'
+            sid: "AC2d99c6d8e671a8757671094b011f4dff",
+            token: "8b6b62a8de2fa21e6e41971fc2cb84e8",
+            no: '+12513026173'
         },
         email: {
             user: 'jaycareer1989@gmail.com',
@@ -22,24 +23,24 @@ var config = {
             refreshToken: '1/Ix7La9ORGBzXSqxqLs7vZpuZrjzYm3ZshHtZ96fpoZo',
             accessToken:'ya29.GlsVB8iAa2cmO80vHYyhVuMghxQRY8E-LWDkXchecoTAkiI9sWg1wTAQo6uqjf2mRXX3qjwGpPyoGpCta5mqpn-jN7Kq0swVB4iuhwcly1gWqU2QjJ0dgihYapAQ'
         },
-        // nexmo:{
-        //     apiKey: 'ef06b72f',
-        //     apiSecret: 'YrGRyGVeTFZtz4bQ',
-        // },
+        nexmo:{
+            apiKey: 'ef06b72f',
+            apiSecret: 'YrGRyGVeTFZtz4bQ',
+        },
 
         authy: {
-            sid: 'ACc85a5ec08b0f1d811dfb84612d11094a'
+            sid: 'ACf327968354d3d32a207f344d2c078102'
         },
         callabckurl: "localhost:4200/"
     },
     staging: {
         mode: 'staging',
         port: 3000,
-        db: 'mongodb://sawjiadmin:myqwerty9644@ds263248.mlab.com:63248/heroku_30cntxcf',
+        db: 'mongodb://localhost:27017',
         twilio: {
-            sid: "ACf327968354d3d32a207f344d2c078102",
-            token: "ed696243044ff73bc54b506b3528ddf7",
-            no: '+12512206042'
+            sid: "AC2d99c6d8e671a8757671094b011f4dff",
+            token: "8b6b62a8de2fa21e6e41971fc2cb84e8",
+            no: '+12513026173'
         },
         email: {
             user: 'jaycareer1989@gmail.com',

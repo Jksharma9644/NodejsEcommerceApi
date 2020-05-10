@@ -65,14 +65,16 @@ app.route('/auth/confirmation')
     .post(userHandler.confirmationPost);
 // app.route('/auth/resend')
 //     .post(userHandler.resend);
-// app.route('/auth/sendOTP')
-//     .post(userHandler.sendVerificationCode);
-// app.route('/auth/verifyOTP')
-//     .post(userHandler.VerifyOTP);
+app.route('/auth/sendOTP')
+    .post(userHandler.sendVerificationCode);
+app.route('/auth/verifyOTP')
+    .post(userHandler.VerifyOTP);
 app.route('/auth/editProfile/:id')
     .put(userHandler.editClientProfile);
 app.route('/auth/getallUsers')
      .get(userHandler.getAllusers);
+app.route('/auth/getUserProfile/:id')
+    .get(userHandler.getUserProfile);
 // payment gateway api
 
 app.route('/createHash')
@@ -92,6 +94,8 @@ app.route('/auth/admin/sign_in')
 // route files
 app.route('/product')
     .post(productHandler.AddProduct);
+// app.route('/dumpdatabase')
+//     .get(productHandler.dumpAllProductList);
 app.route('/product/csvupload')
     .get(productHandler.CSVUpload);
 app.route('/addcategories')
@@ -104,6 +108,8 @@ app.route('/category/update/:id')
     .put(categoryHandler.editCategoryById);
 app.route('/category/remove/:id')
     .get(categoryHandler.delteCategory);
+// app.route('/dumpcategories')
+//       .get(categoryHandler.dumpAllcategories);
 
 app.route('/productlist')
     .get(productHandler.ProductList);

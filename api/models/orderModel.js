@@ -17,5 +17,7 @@ var OrderSchema= new mongoose.Schema({
     "PAYMENT_STATUS": { type: String },
     "PAYMENT_MODE" :{ type: String },
     "platform":{type: String },
+    "DELIVERY_DATE":  { type: Date, default: Date.now }
+
 })
 mongoose.model('Orders',OrderSchema);
