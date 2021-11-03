@@ -33,7 +33,7 @@
     "nodemailer": "^4.6.0",
     "nodemailer-express-handlebars": "^2.0.0",
     "twilio": "^3.31.0",
-    "validator": "^9.3.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "expect": "^22.0.3",
